@@ -63,6 +63,7 @@ td {
     background-color: #e4d3f5;
     cursor: pointer;
   }
+
   
   /* Add a light grey background on mouse-over */
   .btn:hover {
@@ -78,10 +79,16 @@ td {
     display: flex;
 }
   #filtered{
+    background-image: url('/assets/images/funnel-icon-green.png'); /* Add a filter icon to input */
+    background-position: right center; /* Position the search icon */
+    background-size: 20px;
+    background-repeat: no-repeat; 
+    padding: 5px; 
     visibility:hidden;
-    background-color: #139745;
-    color: #ffffff;
+    background-color: #5a023a;
+    color: #43e280;
     width: 200px;
+    
   }
 
 #container{

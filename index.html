@@ -14,13 +14,13 @@
         <h1>CyberPatient medications</h1>
  
         <div id="filters">
-            <button class="btn active" onclick="clearFilter()"> All</button>
+            <button class="btn active" id="all" onclick="clearFilter()"> All</button>
             <button class="btn" onclick="category()"> Category</button>
          </div>
          <div class="container">
-            <button id="filtered" onclick="filter()">ALIMENTARY TRACT AND METABOLISM</button>
+            <input type="text" id="filtered" onkeyup="searchbyFilters()" placeholder="Filter by category.." >
           </div>
-        <input type="text" id="myInput" onkeyup="searchFunction()" placeholder="Search for medication.." >
+        <input type="text" id="myInput" onkeyup="searchbyName()" placeholder="Search for medication.." >
             <br> <br>
         <!--table-->
         <div id="container">

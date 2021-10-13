@@ -1,3 +1,6 @@
+ // Declare global variables
+var input, filter, table, tr, td, i, txtValue;
+
 $(document).ready(function () {
 
     //fecth data
@@ -30,46 +33,58 @@ $(document).ready(function () {
     });
 });
 
-//filter table by category
-function filter(){
-    var categoryFilter = (data)=>{
-        return data.category == "ALIMENTARY TRACT AND METABOLISM";
+function searchFunction(num, input) {
+
+  filter = input.value.toUpperCase();
+  table = document.getElementById("table");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through  table rows, and hide rows that do not match the search
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[num];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
     }
-    /** Do nothing error with function */
- //   $('#table').tabulator("setFilter", categoryFilter);
- 
+  }
 }
 
+
+//filter table by category
+function searchbyFilters(){
+    input = document.getElementById("filtered");
+    searchFunction(0,input); //0 index to search in category column
+
+}
+
+//make category filter visible
 function category() {
 document.getElementById('filtered').style.visibility = "visible";
 }
 
-//remove table filter
+//remove table catefory filter
 function clearFilter(){
+ 
     document.getElementById('filtered').style.visibility = "hidden"; 
-   // $("#table").tabulator("clearFilter");
-   
-}
-
-function searchFunction() {
-    // Declare variables
-    var input, filter, table, tr, td, i, txtValue;
-    input = document.getElementById("myInput");
-    filter = input.value.toUpperCase();
     table = document.getElementById("table");
     tr = table.getElementsByTagName("tr");
   
-    // Loop through  table rows, and hide rows that do not match the search
+    // Loop through  table rows, and shows all data
     for (i = 0; i < tr.length; i++) {
       td = tr[i].getElementsByTagName("td")[1];
-      if (td) {
-        txtValue = td.textContent || td.innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-          tr[i].style.display = "";
-        } else {
-          tr[i].style.display = "none";
-        }
+         tr[i].style.display = "";
       }
     }
-  }
+  
+//search table by name      
+function searchbyName(){
+  input = document.getElementById("myInput");
+  searchFunction(1, input); //1 index to search in name column
+}
+
+
 
