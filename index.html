@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/tabulator-tables/dist/css/tabulator.min.css" rel="stylesheet">
+    <title>CyberPatient</title>
+</head>
+<body>
+    
+    <section>
+        <h1>CyberPatient medications</h1>
+ 
+        <div id="filters">
+            <button class="btn active" onclick="clearFilter()"> All</button>
+            <button class="btn" onclick="category()"> Category</button>
+         </div>
+         <div class="container">
+            <button id="filtered" onclick="filter()">ALIMENTARY TRACT AND METABOLISM</button>
+          </div>
+        <input type="text" id="myInput" onkeyup="searchFunction()" placeholder="Search for medication.." >
+            <br> <br>
+        <!--table-->
+        <div id="container">
+            <div id="scrollbox" >
+            <table id="table">
+            <!--headings-->
+                <tr>
+                    <th>Category</th>
+                    <th>Name</th>
+                    <th>Dose</th>
+                    <th>Description</th>
+                    <th>Cost</th>
+                </tr>
+            </table>
+            </div>
+            
+         </div>   
+        
+    </section>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="script.js"></script>
+<script type="text/javascript" src="https://unpkg.com/tabulator-tables/dist/js/tabulator.min.js"></script>
+</html>
